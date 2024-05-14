@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="SqlDialectMappings">
+    <file url="file://$PROJECT_DIR$/Model/inbounds.py" dialect="SQLite" />
+    <file url="file://$PROJECT_DIR$/Model/invoice.py" dialect="SQLite" />
+    <file url="file://$PROJECT_DIR$/Model/order.py" dialect="SQLite" />
+    <file url="file://$PROJECT_DIR$/Model/user_model.py" dialect="SQLite" />
+    <file url="file://$PROJECT_DIR$/UI/invoice_review.py" dialect="SQLite" />
+    <file url="file://$PROJECT_DIR$/Util/reimburese_util.py" dialect="SQLite" />
+    <file url="PROJECT" dialect="SQLite" />
+  </component>
+</project>
