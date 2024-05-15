@@ -34,7 +34,7 @@ class InvoiceReview(tk.Frame):
 
         # 添加示例数据
         # data = invoice.list_invoice()
-        query_str = "select ROWID,invoice_number,order_id,invoice_date,subtotal,tax,total_amount,buyer_enterprise,seller_enterprise,invoice_type,disting from Invoices"
+        query_str = "select ROWID,invoice_number,order_id,invoice_date,subtotal,tax,total_amount,buyer_enterprise,seller_enterprise,invoice_type from Invoices"
         sq_util = sqliteUtil()
         data = sq_util.query(query_str)
         for item in data:
@@ -91,9 +91,12 @@ class InvoiceReview(tk.Frame):
             result = mrpax.check_workflow_result(self.work_id)
             if result:
                 result_data = result['arr_发票鉴别结果']
+                if result_data == ['鉴别失败']:
+                    messagebox.showerror("鉴别失败!")
+                    return
                 for i in range(0,len(self.select_value_id)):
                     self.tree.set(self.select_value_id[i],result_data[i])
             else:
-                raise Exception("未获取到数据!")
+                self.after(1000, self.reface_reuslt)
         except Exception as e:
-            self.after(1000, self.reface_reuslt)
+            raise Exception("未获取到结果")

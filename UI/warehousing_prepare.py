@@ -100,8 +100,13 @@ class WarehousingPrepare(tk.Frame):
 
                     else:
                         messagebox.showerror("警告!", "流程机器人执行失败!请检查流程机器人状态!", icon="warning")
+                else:
+                    self.after(1000, self.reface_result)
         except queue.Empty:
             self.after(1000, self.reface_result)
+        except Exception as e:
+            print(e)
+
 
     def read_inbounds(self):
         file_path = filedialog.askopenfilename(
